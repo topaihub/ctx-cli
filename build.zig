@@ -10,12 +10,8 @@ pub fn build(b: *std.Build) void {
         "-DSQLITE_OMIT_LOAD_EXTENSION=1",
     };
 
-    const zig_logging_module = b.createModule(.{
-        .root_source_file = b.path("vendor/zig-logging/src/root.zig"),
-        .target = target,
-        .optimize = optimize,
-        .link_libc = true,
-    });
+    const zig_logging_dep = b.dependency("zig-logging", .{});
+    const zig_logging_module = zig_logging_dep.module("zig-logging");
 
     const sqlite_module = b.createModule(.{
         .root_source_file = b.path("src/infra/sqlite_storage.zig"),

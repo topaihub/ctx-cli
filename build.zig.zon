@@ -4,14 +4,21 @@
     .fingerprint = 0x5afafa053b7a0e3f,
     .minimum_zig_version = "0.16.0",
     .dependencies = .{
-        .@"zig-release" = .{ .path = "vendor/zig-release" },
+        .@"zig-release" = .{
+            .url = "https://github.com/topaihub/zig-release/archive/refs/tags/v0.2.0.tar.gz",
+            .hash = "zig_release-0.2.0-nnPfHSSRAAB95BeTz0rVLrohV2Xg1wOBAQHDzErO38p6",
+        },
+        .@"zig-logging" = .{
+            .url = "https://github.com/topaihub/zig-logging/archive/refs/tags/v0.1.0.tar.gz",
+            .hash = "logging-0.1.0-ddTPnzuuAgBWn9koEIBAwIJTtzRyeJur91mL0hFUY3PM",
+        },
     },
     .paths = .{
         "build.zig",
         "build.zig.zon",
         "src",
         "tests",
-        "vendor",
+        "vendor/sqlite3",
         "README.md",
         "AGENTS.md",
     },
