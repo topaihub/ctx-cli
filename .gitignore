@@ -1,0 +1,7 @@
+.zig-cache-global/
+.zig-cache-local/
+zig-out/
+ctx-test.db
+*.db-journal
+*.db-wal
+*.db-shm

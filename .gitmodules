@@ -1,0 +1,6 @@
+[submodule "vendor/zig-logging"]
+	path = vendor/zig-logging
+	url = https://github.com/topaihub/zig-logging.git
+[submodule "vendor/zig-release"]
+	path = vendor/zig-release
+	url = https://github.com/topaihub/zig-release.git

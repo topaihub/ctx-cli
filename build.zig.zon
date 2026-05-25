@@ -1,0 +1,18 @@
+.{
+    .name = .ctx_cli,
+    .version = "0.1.0",
+    .fingerprint = 0x5afafa053b7a0e3f,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .@"zig-release" = .{ .path = "vendor/zig-release" },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "tests",
+        "vendor",
+        "README.md",
+        "AGENTS.md",
+    },
+}
