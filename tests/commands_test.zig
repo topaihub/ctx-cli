@@ -259,6 +259,7 @@ const MockFormatter = struct {
 fn makeApp(storage: *MockStorage, formatter: *MockFormatter) App {
     return App.init(
         std.heap.page_allocator,
+        std.process.Environ.empty,
         storage.asStorage(),
         formatter.asFormatter(),
         .{

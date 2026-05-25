@@ -9,9 +9,11 @@ pub const commands = struct {
     pub const delete_cmd = @import("commands/delete.zig");
     pub const export_cmd = @import("commands/export.zig");
     pub const init = @import("commands/init.zig");
+    pub const skill = @import("commands/skill.zig");
 };
 pub const formatter_iface = @import("core/formatter_iface.zig");
 pub const formatter = @import("core/formatter.zig");
+pub const skill_template = @import("core/skill_template.zig");
 pub const models = @import("core/models.zig");
 pub const storage = @import("core/storage.zig");
 pub const sqlite_storage = @import("infra/sqlite_storage.zig");

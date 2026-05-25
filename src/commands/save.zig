@@ -37,7 +37,7 @@ fn csvToJsonArray(allocator: std.mem.Allocator, text: []const u8) ![]const u8 {
 pub fn run(app: *App, args: []const []const u8) !void {
     if (args.len == 0) return error.MissingProjectName;
     const project_id = args[0];
-    const summary = getFlag(args, "--summary") orelse "";
+    const summary = getFlag(args, "--summary") orelse return error.MissingSummary;
     const pending = try csvToJsonArray(app.allocator, getFlag(args, "--pending") orelse "");
     defer app.allocator.free(@constCast(pending));
     const files = try csvToJsonArray(app.allocator, getFlag(args, "--files") orelse "");

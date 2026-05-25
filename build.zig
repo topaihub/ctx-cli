@@ -102,10 +102,20 @@ pub fn build(b: *std.Build) void {
     const format_test = b.addTest(.{ .root_module = format_test_module });
     const format_test_run = b.addRunArtifact(format_test);
 
+    const skill_test_module = b.createModule(.{
+        .root_source_file = b.path("tests/skill_test.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    skill_test_module.addImport("ctx", ctx_module);
+    const skill_test = b.addTest(.{ .root_module = skill_test_module });
+    const skill_test_run = b.addRunArtifact(skill_test);
+
     const test_step = b.step("test", "Run all tests");
     test_step.dependOn(&unit_test_run.step);
     test_step.dependOn(&commands_test_run.step);
     test_step.dependOn(&format_test_run.step);
+    test_step.dependOn(&skill_test_run.step);
 
     const zig_release_dep = b.dependency("zig-release", .{});
     const zig_release = @import("zig-release");
